@@ -17,6 +17,11 @@ enum role {
   Brand
   celeb
 }
+enum status{
+  active
+  pending
+  done
+}
 
 
 model Celeb {
@@ -51,4 +56,7 @@ model Campaigns {
   sDate         DateTime @default(now()) @db.Date
   eDate DateTime
   role        role
+  status status @default(active)
 }
+
+

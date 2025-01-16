@@ -44,7 +44,7 @@ const Signup = () => {
                 celebName, email, password,category,role
             })
             console.log("data sent")
-            router.push("/signin")
+            router.push("/api/auth/signin")
         } catch (err) {
             setLoading(false)
             NextResponse.json({

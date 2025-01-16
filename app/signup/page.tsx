@@ -73,6 +73,10 @@ const Signup = () => {
 }
 
 export default Signup */
+
+
+/* current use below */
+/* 
 "use client"
 import { useRouter } from 'next/navigation'
 import React from 'react'
@@ -93,4 +97,53 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signup */
+
+
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+
+const Signup = () => {
+  const [role, setRole] = useState<"celeb" | "brand" | null>(null);
+  const router = useRouter();
+
+  const handleSignup = () => {
+    if (!role) {
+      alert("Please select a role before signing up.");
+      return;
+    }
+    router.push(`/${role}/signup`);
+  };
+
+  return (
+    <div className="flex justify-center">
+      <div>
+        <button
+          className="bg-black text-white rounded-xl p-4"
+          onClick={() => setRole("celeb")}
+        >
+          Sign up as Celebrity
+        </button>
+      </div>
+      <div>
+        <button
+          className="bg-black text-white rounded-xl p-4"
+          onClick={() => setRole("brand")}
+        >
+          Sign up as Brand
+        </button>
+      </div>
+      <div>
+        <button
+          className="bg-black text-white rounded-xl p-4 mt-4"
+          onClick={handleSignup}
+        >
+          Proceed to Sign Up
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Signup;

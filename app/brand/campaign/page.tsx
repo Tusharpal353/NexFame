@@ -12,7 +12,7 @@ const Campaign = () => {
     const [dateTo,setDateTo]=useState("")
 
     const handleSubmit=async ()=>{
-       // console.log(label,description,budget,dateFrom,dateTo)
+       console.log(label,description,budget,dateFrom,dateTo)
        await axios.post("api/campaign",{
             label,description,budget,dateFrom,dateTo
         })
