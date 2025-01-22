@@ -1,62 +1,67 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+  // This is your Prisma schema file,
+  // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+  // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+  // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
-generator client {
-  provider = "prisma-client-js"
-}
+  generator client {
+    provider = "prisma-client-js"
+  }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-}
+  datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+  }
 
-enum role {
-  Brand
-  celeb
-}
-enum status{
-  active
-  pending
-  done
-}
-
-
-model Celeb {
-  id       String   @id @default(cuid())
-  name     String
-  email     String @unique
-  password String
-  role     role
-  category String 
-  bio String?
-  followers Int? @default(0)
-  instagramUsername String?
-  youtubeUsername String?
+  enum role {
+    Brand
+    celeb
+  }
+  enum status{
+    active
+    pending
+    done
+  }
 
 
+  model Celeb {
+    id       String   @id @default(cuid())
+    name     String
+    email     String @unique
+    password String
+    role     role
+    category String 
+    bio String?
+    followers Int? @default(0)
+    instagramUsername String?
+    youtubeUsername String?
+    invitations Int? @default(0)
+      appliedCampaigns  Campaigns[] @relation("CampaignCeleb") // Many-to-Many relation with Campaigns
 
-}
 
-model Brand {
-  id       String @id @default(cuid())
-  name     String
-  email    String @unique
-  password String
-  role     role
-}
+  }
 
-model Campaigns {
-  id          String @id @default(cuid())
-  name        String
-  description String
-  budget        Int
-  sDate         DateTime @default(now()) @db.Date
-  eDate DateTime
-  role        role
-  status status @default(active)
-}
+  model Brand {
+    id       String @id @default(cuid())
+    name     String
+    email    String @unique
+    password String
+    role     role
+    campaigns Campaigns[]
+  }
+
+  model Campaigns {
+    id          String @id @default(cuid())
+    name        String
+    description String
+    budget        Int
+    sDate         DateTime @default(now()) @db.Date
+    eDate DateTime
+    role        role
+    status status @default(active)
+    brandId String @default("cm5gqu1ms0004uun8n7ukxy2n")
+    brand Brand @relation(fields: [brandId],references: [id]) //relation to brand
+    appliedCelebs Celeb[]   @relation("CampaignCeleb") // Many-to-Many relation with Celeb
+  }
 
 

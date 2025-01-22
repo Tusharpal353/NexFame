@@ -99,7 +99,6 @@ const Signup = () => {
 
 export default Signup */
 
-
 "use client";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -108,40 +107,41 @@ const Signup = () => {
   const [role, setRole] = useState<"celeb" | "brand" | null>(null);
   const router = useRouter();
 
-  const handleSignup = () => {
-    if (!role) {
-      alert("Please select a role before signing up.");
-      return;
-    }
-    router.push(`/${role}/signup`);
+  const handleClientSignup = () => {
+    setRole("celeb");
+    router.push(`/client/signup`);
+  };
+
+  const handleBrandSignup = () => {
+    setRole("brand");
+    router.push(`/brand/signup`);
   };
 
   return (
-    <div className="flex justify-center">
-      <div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+      <h1 className="text-4xl font-bold mb-8">Sign Up</h1>
+      <p className="text-lg mb-6">
+        Choose your role to proceed with the signup process.
+      </p>
+      <div className="flex gap-6">
         <button
-          className="bg-black text-white rounded-xl p-4"
-          onClick={() => setRole("celeb")}
+          className="bg-black hover:bg-gray-800 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          onClick={handleClientSignup}
         >
           Sign up as Celebrity
         </button>
-      </div>
-      <div>
         <button
-          className="bg-black text-white rounded-xl p-4"
-          onClick={() => setRole("brand")}
+          className="bg-black hover:bg-gray-800 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+          onClick={handleBrandSignup}
         >
           Sign up as Brand
         </button>
       </div>
-      <div>
-        <button
-          className="bg-black text-white rounded-xl p-4 mt-4"
-          onClick={handleSignup}
-        >
-          Proceed to Sign Up
-        </button>
-      </div>
+      {role && (
+        <p className="mt-4 text-sm italic">
+          You selected: <span className="font-bold">{role}</span>
+        </p>
+      )}
     </div>
   );
 };

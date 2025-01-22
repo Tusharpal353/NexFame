@@ -10,9 +10,9 @@ const Campaign = () => {
     const [budget,setBudget]=useState(0)
     const [dateFrom,setDateFrom]=useState("")
     const [dateTo,setDateTo]=useState("")
-
+  const brandId="cm5gqu1ms0004uun8n7ukxy2n"
     const handleSubmit=async ()=>{
-       console.log(label,description,budget,dateFrom,dateTo)
+       console.log(label,description,budget,dateFrom,dateTo,brandId)
        await axios.post("api/campaign",{
             label,description,budget,dateFrom,dateTo
         })

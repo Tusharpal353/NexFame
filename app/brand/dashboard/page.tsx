@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 import Campaign from '../campaign/page';
 import { Clipboard, Clock2, IndianRupee, PlusIcon } from 'lucide-react';
+import { signIn } from 'next-auth/react';
 
 
 const Dashboard = () => {
@@ -18,6 +19,7 @@ const Dashboard = () => {
         <div className='text-3xl font-medium'>
           welcome back COMPANY NAME!,
         </div>
+        <div onClick={()=>signIn()}>Signin</div>
         <div className='text-xl '>
           here is what is happeining with your Campaign
         </div>
@@ -49,6 +51,7 @@ const Dashboard = () => {
         </div>
       
       </div>
+
     </div>
   )
 }

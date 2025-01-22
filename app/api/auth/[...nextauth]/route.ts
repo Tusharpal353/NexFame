@@ -177,7 +177,13 @@ const handler = NextAuth({
 });
 
 export { handler as GET, handler as POST };
+
  */
+
+
+
+
+
 import NextAuth from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -193,7 +199,7 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Email",
       credentials: {
-        email: { label: "Email", type: "text", placeholder: "Email" },
+        email: { label: "Email", type: "text", placeholder: "Email from home" },
         password: { label: "Password", type: "password", placeholder: "Password" },
       },
       async authorize(credentials: any) {

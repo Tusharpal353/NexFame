@@ -41,7 +41,7 @@ const Signup = () => {
                 brandName, email, password,role
             })
             console.log("data sent")
-            router.push("/api/auth/signin")
+            router.push("api/auth/signin")
         } catch (err) {
             setLoading(false)
             NextResponse.json({
@@ -51,22 +51,22 @@ const Signup = () => {
         }
     }
     return (
-        <div className='p-20 border border-black m-20'>
-            <div className='text-center'>
+        <div className='p-20 border border-black m-20 bg-purple-300 rounded-3xl'>
+            <div className=' text-center'>
      
-                <div>
-                    <span className='p-4'>Brand Name</span>
-                    <input className='border border-black' type="text" placeholder='email' onChange={(e) => setBrandName(e.target.value)} />
+                <div className='flex flex-row justify-center  items-center'>
+                    <span className='p-4 font-bold text-xl'>Brand Name</span>
+                    <input className='border border-black p-2 rounded-xl' type="text" placeholder='Enter your name' onChange={(e) => setBrandName(e.target.value)} />
                 </div>
-                <div>
-                    <span className='p-4'>Email</span>
-                    <input className='border border-black' type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} />
+                <div className='flex flex-row justify-center items-center'>
+                    <span className='p-4 font-bold text-xl '>Email</span>
+                    <input className='border border-black rounded-xl p-2' type="text" placeholder='email' onChange={(e) => setEmail(e.target.value)} />
                 </div>
-                <div>
-                    <span className='p-4'>Password</span>
-                    <input className='border border-black' type="text" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
+                <div className='flex flex-row justify-center items-center'>
+                    <span className='p-4 font-bold text-xl  '>Password</span>
+                    <input className='border border-black rounded-xl p-2' type="text" placeholder='password' onChange={(e) => setPassword(e.target.value)} />
                 </div>
-                <button className='bg-blue-500 text-white' onClick={() => HandleSubmit()}>Create account</button>
+                <button className='bg-blue-500 text-white p-2 rounded-xl ' onClick={() => HandleSubmit()}>Create account</button>
 
             </div>
 
@@ -74,4 +74,5 @@ const Signup = () => {
     )
 }
 
-export default Signup 
+export default Signup            
+
