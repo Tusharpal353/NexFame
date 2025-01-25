@@ -1,8 +1,8 @@
-import { prismaClient } from "@/app/lib/db";
+/* import { prismaClient } from "@/app/lib/db";
 
 import { NextRequest, NextResponse } from "next/server";
 
-/* 
+
 export async function POST(req: NextRequest,res:NextResponse) {
   const { email } = await req.json();
 console.log(email,"from backend")
@@ -31,7 +31,7 @@ console.log(email,"from backend")
   });
 } */
 // Add support for GET requests
-
+/* 
 export async function POST(req: NextRequest) {
   try {
     const { email } = await req.json();
@@ -68,9 +68,9 @@ export async function POST(req: NextRequest) {
     console.error("Error processing request:", error);
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });
   }
-}
+} */
 
-
+/* 
 export async function GET(req: NextRequest) {
   const camp = await prismaClient.campaigns.findMany({
     where: {
@@ -84,3 +84,4 @@ export async function GET(req: NextRequest) {
   });
 }
 
+ */
