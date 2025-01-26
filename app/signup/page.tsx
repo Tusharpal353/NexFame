@@ -98,46 +98,49 @@ const Signup = () => {
 }
 
 export default Signup */
-"use client"
 
-import { useRouter } from "next/navigation"
+"use client";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { HeroHighlightDemo } from "../components/Background";
 
-export default function LoginPage() {
-  const router = useRouter()
+const Signup = () => {
+  const [role, setRole] = useState<"celeb" | "brand" | null>(null);
+  const router = useRouter();
 
-  const handleBrandSignup = () => {
-    router.push("/brand/signup")
-  }
-
-  const handleCelebritySignup = () => {
-    router.push("/client/signup")
-  }
+ 
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col sm:flex-row">
-      <div className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gray-800"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-          <button
-            onClick={handleBrandSignup}
-            className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors duration-300"
-          >
-            Sign in as Brand
-          </button>
-        </div>
-      </div>
-      <div className="flex-1 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gray-800"></div>
-        <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
-          <button
-            onClick={handleCelebritySignup}
-            className="px-8 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-lg hover:bg-white hover:text-gray-900 transition-colors duration-300"
-          >
-            Sign in as Celebrity
-          </button>
-        </div>
-      </div>
-    </div>
-  )
-}
+    <div>
+      <HeroHighlightDemo/>
 
+      {/* <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 text-white">
+        <h1 className="text-4xl font-bold mb-8">Sign Up</h1>
+        <p className="text-lg mb-6">
+          Choose your role to proceed with the signup process.
+        </p>
+        <div className="flex gap-6">
+          <button
+            className="bg-black hover:bg-gray-800 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            onClick={handleClientSignup}
+          >
+            Sign up as Celebrity
+          </button>
+          <button
+            className="bg-black hover:bg-gray-800 text-white font-semibold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105"
+            onClick={handleBrandSignup}
+          >
+            Sign up as Brand
+          </button>
+        </div>
+        {role && (
+          <p className="mt-4 text-sm italic">
+            You selected: <span className="font-bold">{role}</span>
+          </p>
+        )}
+      </div> */}
+    </div>
+  );
+};
+
+export default Signup;
