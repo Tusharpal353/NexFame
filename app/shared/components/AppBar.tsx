@@ -10,7 +10,7 @@ const AppBar = () => {
    
     console.log(session.data?.user?.email)
     return (
-        <div className='bg-slate-500 py-4'>
+        <div className='bg-[#171717] py-4'>
             <div>
 
 

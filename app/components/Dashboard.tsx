@@ -1,47 +1,27 @@
-"use client"
-import { useSession } from 'next-auth/react'
-import React from 'react'
+"use client";
+import { useSession } from 'next-auth/react';
+import React from 'react';
+import raftar2 from "@/app/[lib]/images/raftar2.jpg";
+import samayraina from "@/app/[lib]/images/samay raina.jpg";
+import raftar from "@/app/[lib]/images/raftar.jpg";
+import sedhemaut2 from "@/app/[lib]/images/sedhemaut2.jpg";
+import king from "@/app/[lib]/images/king.jpg";
+import seedhemaut from "@/app/[lib]/images/seedhemaut.jpg";
+import Image from 'next/image';
+import Dashone from './Dashone';
+import Dashtwo from './Dashtwo';
 
 const Dashboard = () => {
-  const session = useSession()
+  const session = useSession();
+
   return (
-    <div className='bg-slate-950 w-full h-screen'>
-        <div className='text-white text-center'>
-            This is the dashboard
-      <div className='text-white'>{  (JSON.stringify(session))}</div>
-        </div>
+    <div className="w-full h-screen">
+      {/* Image Section with Overlay */}
+      <Dashone/>
+
+     <Dashtwo/>
     </div>
-  )
-}
-
-export default Dashboard
-/* "use client";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
-
-const Dashboard = () => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
-
-  useEffect(() => {
-    if (status === "authenticated") {
-      if (session.user.role === "Brand") {
-        // Redirect to brand dashboard
-        router.push("/brand/dashboard");
-      } else if (session.user.role === "celeb") {
-        // Redirect to celebrity dashboard
-        router.push("/celeb/dashboard");
-      }
-    }
-  }, [status, session, router]);
-
-  if (status === "loading") {
-    return <div>Loading...</div>;
-  }
-
-  return <div>Redirecting...</div>;
+  );
 };
 
 export default Dashboard;
- */
