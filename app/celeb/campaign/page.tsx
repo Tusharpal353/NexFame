@@ -11,7 +11,9 @@ const Campaign = () => {
         console.log(camp.data.data)
         setCampaign(camp.data.data)
     }
-
+    const handleApply = ()=>{
+        const id = campaign.
+    }
 
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const Campaign = () => {
                     <h1> End Date : {camp.eDate}</h1>
                     <h1>Status : {camp.status}</h1>
 
-                    <button className='bg-blue-400 text-white rounded-xl p-2 m-1'>Apply</button>
+                    <button className='bg-blue-400 text-white rounded-xl p-2 m-1' onSubmit={handleApply}>Apply</button>
                 </div>
             ))
           }

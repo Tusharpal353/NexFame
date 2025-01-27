@@ -6,6 +6,10 @@ import Dashone from './Dashone';
 import Dashtwo from './Dashtwo';
 import { HeroHighlight } from './ui/hero-highlight';
 import { HeroHighlightDemo } from './Background';
+import { AnimatedTestimonialsDemo } from './Dashthree';
+import { InfiniteMovingCardsDemo, SparklesPreview } from './ui/DashFour';
+import { Spotlight } from './ui/Spotlight';
+import { SpotlightPreview } from './Dashfour';
 
 const Dashboard = () => {
   const session = useSession();
@@ -15,7 +19,9 @@ const Dashboard = () => {
       {/* Image Section with Overlay */}
       <Dashone/>
       <Dashtwo/>
-      
+      <AnimatedTestimonialsDemo  />
+     <InfiniteMovingCardsDemo/>
+    {/*   <SpotlightPreview/> */}
     </div>
   );
 };

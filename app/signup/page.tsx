@@ -105,8 +105,7 @@ import React, { useState } from "react";
 import { HeroHighlightDemo } from "../components/Background";
 
 const Signup = () => {
-  const [role, setRole] = useState<"celeb" | "brand" | null>(null);
-  const router = useRouter();
+  
 
  
 

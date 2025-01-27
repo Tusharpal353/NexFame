@@ -14,7 +14,7 @@ const Dashone = () => {
     return (
       <div className="w-full h-screen">
         {/* Image Section with Overlay */}
-        <div className="w-full h-screen relative bg-[#171717] p-3">
+        <div className="w-full h-screen relative bg-black p-3">
           {/* Images */}
           <div className="flex w-full h-5/6 ">
             <div className="w-1/3 h-full p-2">
@@ -41,16 +41,21 @@ const Dashone = () => {
           </div>
   
           {/* Black Overlay */}
-          <div className="absolute inset-0 bg-[#171717] bg-opacity-70"></div>
+          <div className="absolute inset-0 bg-[#0A0A0A] bg-opacity-70"></div>
   
           {/* Heading */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center ">
-            <h1 className="text-white text-4xl md:text-6xl font-bold text-center ">
-            The Original Advocate For The World's Most Extraordinary Talent
-  
-            </h1>
-            <p className='text-white text-xl md:text-xl font-bold text-center '>Enabling generations of artists and creators to achieve success, impact culture, and shape a better world.</p>
-          </div>
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center space-y-4 px-4">
+  <h1 className="text-white text-5xl md:text-7xl font-bold leading">
+    NexFame
+  </h1>
+  <h2 className="text-white text-xl md:text-5xl font-semibold leading-snug">
+    A place to take your product Next level with Fame
+  </h2>
+  <p className="text-white text-lg md:text-xl font-light leading-relaxed max-w-3xl">
+    Enabling generations of artists and creators to achieve success, impact culture, and shape a better world.
+  </p>
+</div>
+
         </div>
   
         
